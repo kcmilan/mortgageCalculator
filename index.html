@@ -5,78 +5,179 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<script>
-    function alert(){
-        alert("Hello");
-    }
-</script>
 </head>
 <body background = "mortgage-bground.jpg">
     
      <div class = "container">
          <div class="row">
              <div class="col-md-12">
+               <div id ="back" hidden="true"><button id="toCal">To Calculator</button></div>
                <div id="title">Milan's Mortgage Calculator</div>
              </div>
          </div>
 
          <form>
                 <div class="form-group row">
-                  <label for="propvalue" class="col-sm-3 col-form-label">Property Value</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control" id="propvlue" placeholder="Property Value (Just Numbers)"> 
+                  <label for="propvalue" class="col-md-3 col-form-label">Property Value</label>
+                  <div class="col-md-4">
+                    <input type="text" class="form-control" id="propvalue" placeholder="Property Value (Just Numbers)"> 
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="year" class="col-sm-3 col-form-label">Length</label>
-                  <div class="col-sm-4">
+                  <label for="year" class="col-md-3 col-form-label">Length</label>
+                  <div class="col-md-4">
                     <input type="text" class="form-control" id="year" placeholder="Year">
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-md-4">
                         <input type="text" class="form-control" id="month" placeholder="Month">
                       </div>
                 </div>
                 <div class="form-group row">
-                        <label for="interest" class="col-sm-3 col-form-label">Interest Rate (%)</label>
-                        <div class="col-sm-4">
+                        <label for="interest" class="col-md-3 col-form-label">Interest Rate (%)</label>
+                        <div class="col-md-4">
                           <input type="text" class="form-control" id="interest" placeholder="Interest Rate (Just Numbers)">
                         </div>
                 </div>
-                <p id="extra">Extra payment Options</p>
+                <p class="extra">Extra payment Options</p>
                 <div class="form-group row">
-                        <label for="addmonth" class="col-sm-3 col-form-label">Add per month</label>
-                        <div class="col-sm-4">
+                        <label for="addmonth" class="col-md-3 col-form-label">Add per month</label>
+                        <div class="col-md-4">
                           <input type="text" class="form-control" id="addmonth" placeholder=" (Just Numbers)">
                         </div>
                 </div>
                 <div class="form-group row">
-                        <label for="addyear" class="col-sm-3 col-form-label">Add per Year</label>
-                        <div class="col-sm-4">
+                        <label for="addyear" class="col-md-3 col-form-label">Add per Year</label>
+                        <div class="col-md-4">
                           <input type="text" class="form-control" id="addyear" placeholder=" (Just Numbers)">
-                        </div>
+                        </div> 
+                        <div class="col-md-4">
+                            
+                                <select class="custom-select" id="yearlyPaymentMonth">
+                                  <option selected value="1">yearly payment month, default is jan</option>
+                                  <option value="1">Jan</option>
+                                  <option value="2">Feb</option>
+                                  <option value="3">Mar</option>
+                                  <option value="4">Apr</option>
+                                  <option value="5">May</option>
+                                  <option value="6">Jun</option>
+                                  <option value="7">Jul</option>
+                                  <option value="8">Aug</option>
+                                  <option value="9">Sep</option>
+                                  <option value="10">Oct</option>
+                                  <option value="11">Nov</option>
+                                  <option value="12">Dec</option>
+                                </select>
+                               
                 </div>
+              </div>
                 <div class="form-group row">
-                        <label for="prepay" class="col-sm-3 col-form-label">Pre Payment</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="addyear" placeholder=" (Just Numbers)">
+                        <label for="prepay" class="col-md-3 col-form-label">Pre Payment</label>
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" id="prepay" placeholder=" (Just Numbers)">
                         </div>
                 </div>
                 <br>
                 <div class="form-group row">
-                  <div class="col-sm-2 ">
-                    <button onclick="alert" class="btn btn-primary">Summary</button>
+                  <div class="col-md-2 ">
+                    <button  id="summary" class = "btn btn-primary">Summary</button>
                   </div>
-                  <div class="col-sm-2 ">
-                        <button class="btn btn-primary"> &nbsp; &nbsp;Table &nbsp;&nbsp; </button>
+                  <div class="col-md-2 ">
+                        <button id="table" class="btn btn-primary">&nbsp;&nbsp;  &nbsp;Table &nbsp;&nbsp;&nbsp; </button>
                       </div>
                 </div>
               </form>
+              <br>
+              <div id="result" hidden="true">
+              <div class="row">
+                <div class="col-md-6">
+                  <form>
+                    
+                    <p class="extra">Without Extra payment</p>
+                    <div class="form-group row">
+                        <label for="nmonthly" class="col-md-4 col-form-label">Monthly Payment</label>
+                        <div class="col-md-3">
+                        <input type="text" readonly class="form-control-plaintext" id="nmonthly" value="">
+                     </div>
+                     </div>
+                    <div class="form-group row">
+                      <label for="nint" class="col-md-3 col-form-label">Total Interest</label>
+                      <div class="col-md-3  offset-md-1">
+                        <input type="text" readonly class="form-control-plaintext" id="nint" value="">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="intprin" class="col-md-4 col-form-label col-md-offset-4">Interest+Principal</label>
+                      <div class="col-md-4">
+                        <input type="text" readonly class="form-control-plaintext" id="intprin" value="">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-6">
+                  <div id="withextra" hidden="true">
+                    <form>
+                      
+                      <p class="extra">With Extra payment</p>
+                    
+                      <div class="form-group row">
+                         <label for="ninterest" class="col-md-4 col-form-label col-md-offset-4">Total Interest</label>
+                         
+                         <div class="col-md-3">
+                         <input type="text" readonly class="form-control-plaintext" id="ninterest" value="">
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                         <label for="nprinint" class="col-md-4 col-form-label col-md-offset-4">Interest+Principal</label>
+
+                         <div class="col-md-3">
+                         <input type="text" readonly class="form-control-plaintext" id="nprinint" value="">
+                         </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="nsave" class="col-md-4 col-form-label col-md-offset-4">Interest saved</label>
+ 
+                          <div class="col-md-4">
+                          <input type="text" readonly class="form-control-plaintext" id="nsave" value="">
+                          </div>
+                       </div>
+                       <div class="form-group row">
+                          <label for="npayoff" class="col-md-4 col-form-label col-md-offset-4">Payoff Early by</label>
+ 
+                          <div class="col-md-4">
+                          <input type="text" readonly class="form-control-plaintext" id="npayoff" value="">
+                          </div>
+                       </div>
+
+                    </form>
+                  </div>
+                    </div>
+                  </div>
+            </div>
+            
+            
+            <table id = "amorTable" class="table" hidden="true">
+                <thead>
+                  <tr>
+                    <th scope="col">Month</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Interest</th>
+                    <th scope="col">Principal</th>
+                    <th scope="col">Remaining</th>
+                  </tr>
+                </thead>
+              
+                    <tbody></tbody>
+                
+              </table>
+          </div>
         
      </div>
   
-    
     <script src="jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    
 
 </body>
 

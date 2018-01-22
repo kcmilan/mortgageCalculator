@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg32"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="tocal.svg">
+  <defs
+     id="defs26" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="744.98882"
+     inkscape:cy="960.71367"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata29">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000080;fill-opacity:0;stroke-width:0.26458332"
+       id="rect34"
+       width="41.159508"
+       height="24.588797"
+       x="50.24667"
+       y="85.857063" />
+    <rect
+       style="fill:#00ff00;fill-opacity:1;stroke-width:0.26458332"
+       id="rect4532"
+       width="116.52951"
+       height="34.745037"
+       x="56.126598"
+       y="56.991955" />
+    <path
+       sodipodi:type="star"
+       style="fill:#00ff00;fill-opacity:1;stroke-width:0.26458332"
+       id="path4534"
+       sodipodi:sides="3"
+       sodipodi:cx="15.501633"
+       sodipodi:cy="21.177839"
+       sodipodi:r1="49.666126"
+       sodipodi:r2="24.833065"
+       sodipodi:arg1="-3.0012177"
+       sodipodi:arg2="-1.9540201"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M -33.675958,14.228834 6.2162432,-1.8539358 46.108443,-17.936701 40.09043,24.652344 34.072412,67.241385 0.19822516,40.73511 Z"
+       inkscape:transform-center-x="12.067862"
+       inkscape:transform-center-y="0.40074184"
+       transform="rotate(-7.1182468,445.22902,-382.80321)" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4536"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+       transform="scale(0.26458333)"><flowRegion
+         id="flowRegion4538"
+         style="fill:#ffffff"><rect
+           id="rect4540"
+           width="408.10162"
+           height="42.426407"
+           x="131.31982"
+           y="253.78847"
+           style="fill:#ffffff" /></flowRegion><flowPara
+         id="flowPara4542">TTO ca</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:18.98350716px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.47458768"
+       x="103.59042"
+       y="56.614704"
+       id="text4546"
+       transform="scale(0.66565551,1.5022786)"><tspan
+         sodipodi:role="line"
+         id="tspan4544"
+         x="103.59042"
+         y="56.614704"
+         style="fill:#f9f9f9;stroke-width:0.47458768">To Calculator</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="250.16428"
+       y="120.06757"
+       id="text4550"><tspan
+         sodipodi:role="line"
+         id="tspan4548"
+         x="250.16428"
+         y="120.06757"
+         style="stroke-width:0.26458332">s</tspan></text>
+  </g>
+</svg>

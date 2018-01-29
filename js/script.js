@@ -4,8 +4,8 @@ $(document).ready(function(){  // all other functions lie inside it
 
     var validate = function(propValue,lengthInMonths,interestRate){   // validate if one or more of required values are missing or in wrong format
         
-        if(propValue == 0 || lengthInMonths == 0 || interestRate == 0  ){
-            alert("Some of the values are missing");
+        if(propValue <= 0 || lengthInMonths <= 0 || interestRate <= 0  ){
+            alert("Some of the required values are missing or are inappropriate");
             return false;
         }
         else{
@@ -96,8 +96,7 @@ $(document).ready(function(){  // all other functions lie inside it
 
  
          } else{      // without extra payment
-         
-         alert("here");
+   
          var c =  calMonthlyPayment(userInput.lengthInMonths,userInput.interestRate,userInput.propValue);
          var r = userInput.interestRate;
          var p = userInput.propValue;
@@ -106,25 +105,22 @@ $(document).ready(function(){  // all other functions lie inside it
          var isFinalMOnth = false;    
 
          while(!isFinalMOnth) {  // run till final month's payment row is  pushed in table
-         
-             var interestPaid = p*r*(1/12)*(1/100);
-             var principalPaid = c - interestPaid;
-             var principalRem = p - principalPaid;
-             p = principalRem;
-             month = month + 1;
-             var row = {month:month, payment:c,interest:interestPaid,principal:principalPaid,remaining:principalRem};
-             table.push(row);   
-             if(p + (p*r*(1/12)*(1/100)) <= c )   {  // // if next month's principle + interest < monthy payment , next month is final month 
-                 isFinalMOnth = true; // next month is final month
-             }
-        }
-        // for populating final month's row 
-        interestPaid =  p*r*(1/12)*(1/100);
-        principalPaid = p;   // all of the remaining is paid at final month
-        principalRem = 0;
-        month = month + 1;
-        var row = {month:month, payment:p+interestPaid,interest:interestPaid,principal:principalPaid,remaining:principalRem};
-        table.push(row);   
+            month = month + 1;
+            var interestPaid = p*r*(1/12)*(1/100);
+            var principalPaid = c - interestPaid;
+            if(p < c){   // prinicipal remaining of prev month is less than this months monthly payment , just pay rem amount not , c
+                principalPaid = p;
+                isFinalMOnth = true;
+                c = principalPaid + interestPaid;
+            }
+            var principalRem = p - principalPaid;
+            
+            p = principalRem;
+
+            var row = {month:month, payment:c,interest:interestPaid,principal:principalPaid,remaining:principalRem};
+            table.push(row);  
+           
+       }
 
 
        
@@ -133,7 +129,7 @@ $(document).ready(function(){  // all other functions lie inside it
 }
     
      var showTable = function(){
-         $('form').hide();
+         //$('form').hide();
          $('#amorTable').prop('hidden', false);  
      }
 
@@ -170,12 +166,12 @@ $(document).ready(function(){  // all other functions lie inside it
  
      $('#table').click(function(){
 
-        
-         
+        $('tbody').empty();
+        $('#result').prop('hidden',true);
          var userInput = userInputs();
          var ifValidated = validate(userInput.propValue, userInput.lengthInMonths , userInput.interestRate);
          if (ifValidated){    // cal and show table
-            $('#back').prop("hidden",false);
+           // $('#back').prop("hidden",false);
             var table =  calAmortzTable(userInput);
             populateTable(table);
             showTable();
@@ -189,10 +185,10 @@ $(document).ready(function(){  // all other functions lie inside it
 
     
     $('#summary').click(function(){
-    
+        
         var userInput = userInputs();
         var ifValidated = validate(userInput.propValue, userInput.lengthInMonths , userInput.interestRate);
-        
+        $('#amorTable').prop('hidden', true);  
 
 
 
@@ -203,11 +199,13 @@ $(document).ready(function(){  // all other functions lie inside it
             var i = intPrin - userInput.propValue;
             
             $('#result').prop("hidden",false);
+            $('#withextra').prop('hidden',true);  // hide if shown earlier
             //populate section without extra payment
             $('#nmonthly').val(c.toFixed(2));
             $('#nint').val(i.toFixed(2));
             $('#intprin').val(intPrin.toFixed(2));
-            
+              
+
             if((userInput.addPerMonth + userInput.addPerYear + userInput.prepay) != 0){  // if consists of extra payment , more logic required
                 $('#withextra').prop('hidden',false);
                 var table =  calAmortzTable(userInput);                
